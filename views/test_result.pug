@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h2 Results
+  p You got #{correct} out of #{total} correct.
+  if missed && missed.length
+    p The following were missed:
+    ul
+      each miss in missed
+        if type === 'kanji'
+          li #{miss.symbol} (#{miss.romanji} - #{miss.meaning}) - Your answer: #{miss.answer}
+        else
+          li #{miss.symbol} (#{miss.romanji}) - Your answer: #{miss.answer}
+  a(href="/") Back to Main Menu

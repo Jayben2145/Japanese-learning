@@ -1,0 +1,97 @@
+extends layout
+
+block content
+  h2 Select Flashcard Options
+  form(action="/flashcards/start", method="POST")
+    label(for="type") Type:
+    select(name="type" id="type" onchange="toggleLessons()")
+      option(value="hiragana") Hiragana
+      option(value="katakana") Katakana
+      option(value="kanji") Kanji
+    br
+
+    .kana-selectors(id="kana-selectors")
+      fieldset
+        legend Character Rows
+        label
+          input(type="checkbox", name="row_vowel", checked)
+          | Vowels 
+        label
+          input(type="checkbox", name="row_k", checked)
+          | K's 
+        label
+          input(type="checkbox", name="row_s", checked)
+          | S's 
+        label
+          input(type="checkbox", name="row_t", checked)
+          | T's 
+        label
+          input(type="checkbox", name="row_n", checked)
+          | N's 
+        label
+          input(type="checkbox", name="row_h", checked)
+          | H's 
+        label
+          input(type="checkbox", name="row_m", checked)
+          | M's 
+        label
+          input(type="checkbox", name="row_y", checked)
+          | Y's 
+        label
+          input(type="checkbox", name="row_r", checked)
+          | R's 
+        label
+          input(type="checkbox", name="row_w", checked)
+          | W's
+      br
+      label
+        input(type="checkbox", name="dakuten", checked)
+        |  Include Dakuten
+      br
+      label
+        input(type="checkbox", name="combo", checked)
+        |  Include Combo Characters
+    br
+
+    .lessons-block(style="display:none" id="lessons-block")
+      label(for="lessons") Lessons:
+      select(name="lessons" id="lessons" multiple style="min-width:80px")
+        option(value="1" selected) 1
+        option(value="2") 2
+        option(value="3") 3
+        option(value="4") 4
+        option(value="5") 5
+        option(value="6") 6
+      .lesson-note(id="lesson-note")
+    br
+
+    label
+      input(type="checkbox", name="random")
+      |  Random Order
+    br
+    button(type="submit") Start Flashcards
+
+  script.
+    function toggleLessons() {
+      var type = document.getElementById('type').value;
+      var block = document.getElementById('lessons-block');
+      var note = document.getElementById('lesson-note');
+      var kana = document.getElementById('kana-selectors');
+      if (type === "kanji") {
+        block.style.display = "block";
+        kana.style.display = "none";
+        note.innerHTML = `<b>Lesson Numbers:</b><br>
+        1: Numbers (一～十)<br>
+        2: Days, Months, Weekdays (日, 月, 火, 水, 木, 金, 土, 曜)<br>
+        3: Position/Time (上, 下, 中, 半, etc.)<br>
+        4: Nature/People (山, 川, 元, 気, 天, 私)<br>
+        5: Common Verbs & People (今, 田, 女, 男, 見, 行, 食, 飲)<br>
+        6: Directions & More (東, 西, 南, 北, 口, 出, 右, 左, 分, 先生, 学生)<br>
+        ... (see Genki for more)`;
+      } else {
+        block.style.display = "none";
+        kana.style.display = "block";
+        note.innerHTML = "";
+      }
+    }
+    window.onload = function() { toggleLessons(); }

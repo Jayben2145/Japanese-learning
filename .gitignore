@@ -1,0 +1,62 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# Build artifacts (if you use any)
+dist/
+build/
+tmp/
+temp/
+.cache/
+coverage/
+
+# VSCode and editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Local data files
+*.sqlite
+*.db
+*.bak
+
+# Project specifics
+/public/uploads/
+public/uploads/
+public/tmp/
+views/*.pug~
+
+# Ignore test output
+/test/output/
+test/output/
+
+# Optional: Ignore data files if you don’t want to upload your learning sets (uncomment if needed)
+# data/*.json
+
+# Optional: Ignore any secrets or backup files
+*~
+*.bak
+*.old

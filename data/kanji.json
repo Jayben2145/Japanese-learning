@@ -1,0 +1,60 @@
+[
+    { "kanji": "一", "romanji": "ichi", "meaning": "1", "lesson": 1 },
+    { "kanji": "二", "romanji": "ni", "meaning": "2", "lesson": 1 },
+    { "kanji": "三", "romanji": "san", "meaning": "3", "lesson": 1 },
+    { "kanji": "四", "romanji": "shi/yon", "meaning": "4", "lesson": 1 },
+    { "kanji": "五", "romanji": "go", "meaning": "5", "lesson": 1 },
+    { "kanji": "六", "romanji": "roku", "meaning": "6", "lesson": 1 },
+    { "kanji": "七", "romanji": "shichi/nana", "meaning": "7", "lesson": 1 },
+    { "kanji": "八", "romanji": "hachi", "meaning": "8", "lesson": 1 },
+    { "kanji": "九", "romanji": "kyuu/ku", "meaning": "9", "lesson": 1 },
+    { "kanji": "十", "romanji": "juu", "meaning": "10", "lesson": 1 },
+  
+
+    { "kanji": "日", "romanji": "nichi/bi/hi", "meaning": "day/sun", "lesson": 2 },
+    { "kanji": "月", "romanji": "getsu/tsuki", "meaning": "month/moon", "lesson": 2 },
+    { "kanji": "火", "romanji": "ka/hi", "meaning": "fire", "lesson": 2 },
+    { "kanji": "水", "romanji": "sui/mizu", "meaning": "water", "lesson": 2 },
+    { "kanji": "木", "romanji": "moku/ki", "meaning": "tree", "lesson": 2 },
+    { "kanji": "金", "romanji": "kin/kane", "meaning": "gold/money", "lesson": 2 },
+    { "kanji": "土", "romanji": "do/tsuchi", "meaning": "earth/soil", "lesson": 2 },
+    { "kanji": "曜", "romanji": "you", "meaning": "weekday", "lesson": 2 },
+  
+
+    { "kanji": "上", "romanji": "ue", "meaning": "up/above", "lesson": 3 },
+    { "kanji": "下", "romanji": "shita", "meaning": "down/below", "lesson": 3 },
+    { "kanji": "中", "romanji": "naka", "meaning": "middle/inside", "lesson": 3 },
+    { "kanji": "半", "romanji": "han", "meaning": "half", "lesson": 3 },
+  
+
+    { "kanji": "山", "romanji": "yama", "meaning": "mountain", "lesson": 4 },
+    { "kanji": "川", "romanji": "kawa", "meaning": "river", "lesson": 4 },
+    { "kanji": "元", "romanji": "gen", "meaning": "origin", "lesson": 4 },
+    { "kanji": "気", "romanji": "ki", "meaning": "spirit", "lesson": 4 },
+    { "kanji": "天", "romanji": "ten", "meaning": "heaven", "lesson": 4 },
+    { "kanji": "私", "romanji": "watashi", "meaning": "I/me", "lesson": 4 },
+  
+
+    { "kanji": "今", "romanji": "ima", "meaning": "now", "lesson": 5 },
+    { "kanji": "田", "romanji": "ta/da", "meaning": "rice field", "lesson": 5 },
+    { "kanji": "女", "romanji": "onna", "meaning": "woman", "lesson": 5 },
+    { "kanji": "男", "romanji": "otoko", "meaning": "man", "lesson": 5 },
+    { "kanji": "見", "romanji": "mi(ru)", "meaning": "to see", "lesson": 5 },
+    { "kanji": "行", "romanji": "i(ku)", "meaning": "to go", "lesson": 5 },
+    { "kanji": "食", "romanji": "ta(be)", "meaning": "to eat", "lesson": 5 },
+    { "kanji": "飲", "romanji": "no(mu)", "meaning": "to drink", "lesson": 5 },
+  
+
+    { "kanji": "東", "romanji": "higashi", "meaning": "east", "lesson": 6 },
+    { "kanji": "西", "romanji": "nishi", "meaning": "west", "lesson": 6 },
+    { "kanji": "南", "romanji": "minami", "meaning": "south", "lesson": 6 },
+    { "kanji": "北", "romanji": "kita", "meaning": "north", "lesson": 6 },
+    { "kanji": "口", "romanji": "kuchi", "meaning": "mouth", "lesson": 6 },
+    { "kanji": "出", "romanji": "de(ru)", "meaning": "to exit", "lesson": 6 },
+    { "kanji": "右", "romanji": "migi", "meaning": "right", "lesson": 6 },
+    { "kanji": "左", "romanji": "hidari", "meaning": "left", "lesson": 6 },
+    { "kanji": "分", "romanji": "fun/bun", "meaning": "minute/to divide", "lesson": 6 },
+    { "kanji": "先生", "romanji": "sensei", "meaning": "teacher", "lesson": 6 },
+    { "kanji": "学生", "romanji": "gakusei", "meaning": "student", "lesson": 6 }
+  ]
+  

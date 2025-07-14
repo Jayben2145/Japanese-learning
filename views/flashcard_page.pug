@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  h2 Flashcards: #{type}
+
+  .flashcard-controls
+    button(type="button", onclick="prevCard()") &lt;
+    .flashcard#flashcard(onclick="flipCard()")
+      span#char
+      span#romanji(style="display:none")
+        button#speakBtn(
+          type="button"
+          style="display:none; margin-left:12px; background:transparent; border:none; cursor:pointer;"
+          aria-label="Speak"
+        )
+          span(role="img" aria-label="speaker") 🔊
+    button(type="button", onclick="nextCard()") &gt;
+
+  //- JSON data and type for JS
+  script(type="application/json", id="flashcard-data") !{JSON.stringify(chars)}
+  script.
+    var flashcardType = !{JSON.stringify(type)};
+  script(src="/js/flashcard.js")
+
+  //- Keyboard/mouse help box at bottom right
+  .flashcard-help-bottom
+    h3 Flashcard Controls
+    ul
+      li 
+        b Left / Right Arrow
+        |  — Previous / Next card
+      li 
+        b Spacebar
+        |  — Flip card
+      li 
+        b V
+        |  — Play pronunciation (when answer is shown)
+      li 
+        b Mouse Click
+        |  — Flip card (click the card), Next/Prev (click arrows), Play voice (click 🔊)
