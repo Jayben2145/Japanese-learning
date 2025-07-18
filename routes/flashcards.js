@@ -24,9 +24,15 @@ router.get('/', (req, res) => {
 
 // Flashcard page
 router.post('/start', (req, res) => {
-  const { type, dakuten, combo, lessons } = req.body;
+  const { type, dakuten, combo, lessons, categories } = req.body;
   let chars = loadChars(type);
 
+  let selectedCategories = [];
+  if (Array.isArray(categories)) {
+    selectedCategories = categories;
+  } else if (categories) {
+    selectedCategories = [categories];
+  }
   let selectedLessons = [];
   if (Array.isArray(lessons)) {
     selectedLessons = lessons.map(Number);
@@ -39,12 +45,12 @@ let selectedRows = rowNames.filter(r => req.body['row_' + r]);
 
 
 let filtered = chars.filter(c => {
-  if (type !== 'kanji') {
-    // Only allow selected rows (if at least one selected)
+  if (type === 'hiragana' || type === 'katakana') {
     if (selectedRows.length && c.row && !selectedRows.includes(c.row)) return false;
-    // Dakuten/Handakuten
     if (!dakuten && (c.type === 'dakuten' || c.type === 'handakuten' || c.type === 'combo_dakuten' || c.type === 'combo_handakuten')) return false;
     if (!combo && (c.type === 'combo' || c.type === 'combo_dakuten' || c.type === 'combo_handakuten')) return false;
+  } else if (type === 'vocab') {
+    if (selectedCategories.length && !selectedCategories.includes(c.category)) return false;
   } else {
     if (selectedLessons.length && !selectedLessons.includes(Number(c.lesson))) return false;
   }

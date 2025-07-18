@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h2 Sentence Results
+  p You got #{correct} out of #{total} correct.
+  if missed && missed.length
+    p The following were missed:
+    ul
+      each miss in missed
+        li #{miss.question} - Correct: #{miss.romanji} (#{miss.japanese}) - Your answer: #{miss.answer}
+  a(href="/") Back to Main Menu
