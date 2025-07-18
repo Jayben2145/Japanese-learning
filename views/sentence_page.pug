@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h2 Sentence Practice
+  form(action="/sentences/result", method="POST")
+    .test-grid
+      each s, i in sentences
+        .test-tile
+          h3 #{s.english}
+          input(type="hidden", name="question_" + i, value=s.english)
+          input(type="text", name="answer_" + i, autocomplete="off", placeholder="Japanese")
+    input(type="hidden", name="total", value=sentences.length)
+    button(type="submit") Submit Answers

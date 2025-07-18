@@ -10,6 +10,13 @@ block content
           if type === 'kanji'
             h3 #{char.kanji}
             input(type="hidden", name="symbol_" + i, value=char.kanji)
+          else if type === 'vocab'
+            if char.kanji
+              h3 #{char.kanji}
+              input(type="hidden", name="symbol_" + i, value=char.kanji)
+            else
+              h3 #{char.kana}
+              input(type="hidden", name="symbol_" + i, value=char.kana)
           else
             h3 #{char.symbol}
             input(type="hidden", name="symbol_" + i, value=char.symbol)

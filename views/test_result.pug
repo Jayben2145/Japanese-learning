@@ -9,6 +9,8 @@ block content
       each miss in missed
         if type === 'kanji'
           li #{miss.symbol} (#{miss.romanji} - #{miss.meaning}) - Your answer: #{miss.answer}
+        else if type === 'vocab'
+          li #{miss.symbol} (#{miss.romanji} - #{miss.meaning}) - Your answer: #{miss.answer}
         else
           li #{miss.symbol} (#{miss.romanji}) - Your answer: #{miss.answer}
   a(href="/") Back to Main Menu

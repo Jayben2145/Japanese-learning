@@ -1,0 +1,32 @@
+[
+  {
+    "english": "I eat sushi.",
+    "romanji": "watashi wa sushi o tabemasu.",
+    "japanese": "私は寿司を食べます。",
+    "lesson": 3
+  },
+  {
+    "english": "That cat is small.",
+    "romanji": "ano neko wa chiisai desu.",
+    "japanese": "あの猫は小さいです。",
+    "lesson": 5
+  },
+  {
+    "english": "He is a student.",
+    "romanji": "kare wa gakusei desu.",
+    "japanese": "彼は学生です。",
+    "lesson": 1
+  }
+  , {
+    "english": "I drink water.",
+    "romanji": "watashi wa mizu o nomimasu.",
+    "japanese": "私は水を飲みます。",
+    "lesson": 2
+  },
+  {
+    "english": "The car is new.",
+    "romanji": "kuruma wa atarashii desu.",
+    "japanese": "車は新しいです。",
+    "lesson": 6
+  }
+]
