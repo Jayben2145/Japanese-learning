@@ -34,7 +34,6 @@ router.post('/start', (req, res) => {
     selectedLessons = [Number(lessons)];
   }
 
-  // In your route
 let rowNames = ["vowel", "k", "s", "t", "n", "h", "m", "y", "r", "w"];
 let selectedRows = rowNames.filter(r => req.body['row_' + r]);
 
@@ -47,7 +46,9 @@ let filtered = chars.filter(c => {
     if (!dakuten && (c.type === "dakuten" || c.type === "handakuten" || c.type === "combo_dakuten" || c.type === "combo_handakuten")) return false;
     if (!combo && (c.type === "combo" || c.type === "combo_dakuten" || c.type === "combo_handakuten")) return false;
   }
-  // (Lesson filtering for kanji unchanged)
+  else {
+    if (selectedLessons.length && !selectedLessons.includes(Number(c.lesson))) return false;
+  }
   return true;
 });
 
