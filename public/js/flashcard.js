@@ -46,6 +46,13 @@ function setupSpeakerButton() {
       } else {
         speakKana(data.kanji);
       }
+    } else if (type === 'vocab') {
+      let reading = data.romanji ? data.romanji.split(/[\/,]/)[0].trim() : '';
+      if (reading) {
+        speakRomanji(reading);
+      } else {
+        speakKana(data.kana || data.kanji);
+      }
     }
   };
 }
@@ -68,6 +75,12 @@ function showCard(idx) {
     } else if (data.romanji) {
       romanjiElem.append(document.createTextNode(data.romanji));
     }
+  } else if (type === 'vocab') {
+    charElem.textContent = data.kanji || data.kana || '';
+    romanjiElem.innerHTML = '';
+    let text = data.romanji || '';
+    if (data.meaning) text += ' - ' + data.meaning;
+    if (text) romanjiElem.append(document.createTextNode(text));
   } else {
     charElem.textContent = data.symbol || '';
     romanjiElem.innerHTML = '';
@@ -152,6 +165,13 @@ document.addEventListener('keydown', function(e) {
         speakRomanji(reading);
       } else {
         speakKana(data.kanji);
+      }
+    } else if (type === 'vocab') {
+      let reading = data.romanji ? data.romanji.split(/[\/,]/)[0].trim() : '';
+      if (reading) {
+        speakRomanji(reading);
+      } else {
+        speakKana(data.kana || data.kanji);
       }
     }
   }

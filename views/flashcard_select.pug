@@ -8,6 +8,7 @@ block content
       option(value="hiragana") Hiragana
       option(value="katakana") Katakana
       option(value="kanji") Kanji
+      option(value="vocab") Vocabulary
     br
 
     .kana-selectors(id="kana-selectors")
@@ -68,7 +69,16 @@ block content
         option(value="10") 10
         option(value="11") 11
         option(value="12") 12
-      .lesson-note(id="lesson-note")
+    .categories-block(style="display:none" id="categories-block")
+      label(for="categories") Categories:
+      select(name="categories" id="categories" multiple style="min-width:120px")
+        option(value="verb" selected) Verbs
+        option(value="place") Places
+        option(value="object") Objects
+        option(value="animal") Animals
+        option(value="i-adjective") i-Adjectives
+        option(value="na-adjective") na-Adjectives
+    .lesson-note(id="lesson-note")
     br
 
     label
@@ -81,21 +91,22 @@ block content
     function toggleLessons() {
       var type = document.getElementById('type').value;
       var block = document.getElementById('lessons-block');
+      var cat = document.getElementById('categories-block');
       var note = document.getElementById('lesson-note');
       var kana = document.getElementById('kana-selectors');
       if (type === "kanji") {
         block.style.display = "block";
+        cat.style.display = "none";
         kana.style.display = "none";
-        note.innerHTML = `<b>Lesson Numbers:</b><br>
-        1: Numbers (一～十)<br>
-        2: Days, Months, Weekdays (日, 月, 火, 水, 木, 金, 土, 曜)<br>
-        3: Position/Time (上, 下, 中, 半, etc.)<br>
-        4: Nature/People (山, 川, 元, 気, 天, 私)<br>
-        5: Common Verbs & People (今, 田, 女, 男, 見, 行, 食, 飲)<br>
-        6: Directions & More (東, 西, 南, 北, 口, 出, 右, 左, 分, 先生, 学生)<br>
-        ... (see Genki for more)`;
+        note.innerHTML = "Select one or more lesson numbers to practice.";
+      } else if (type === "vocab") {
+        block.style.display = "none";
+        cat.style.display = "block";
+        kana.style.display = "none";
+        note.innerHTML = "Select one or more categories to practice.";
       } else {
         block.style.display = "none";
+        cat.style.display = "none";
         kana.style.display = "block";
         note.innerHTML = "";
       }

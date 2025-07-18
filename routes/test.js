@@ -24,9 +24,15 @@ router.get('/', (req, res) => {
 
 // Start test, filter based on checkboxes/lessons
 router.post('/start', (req, res) => {
-  const { type, dakuten, combo, lessons } = req.body;
+  const { type, dakuten, combo, lessons, categories } = req.body;
   let chars = loadChars(type);
 
+  let selectedCategories = [];
+  if (Array.isArray(categories)) {
+    selectedCategories = categories;
+  } else if (categories) {
+    selectedCategories = [categories];
+  }
   let selectedLessons = [];
   if (Array.isArray(lessons)) {
     selectedLessons = lessons.map(Number);
@@ -39,14 +45,13 @@ let selectedRows = rowNames.filter(r => req.body['row_' + r]);
 
 
 let filtered = chars.filter(c => {
-  if (type !== 'kanji') {
-    // Only allow selected rows (if at least one selected)
+  if (type === 'hiragana' || type === 'katakana') {
     if (selectedRows.length && c.row && !selectedRows.includes(c.row)) return false;
-    // Dakuten/Handakuten
-    if (!dakuten && (c.type === "dakuten" || c.type === "handakuten" || c.type === "combo_dakuten" || c.type === "combo_handakuten")) return false;
-    if (!combo && (c.type === "combo" || c.type === "combo_dakuten" || c.type === "combo_handakuten")) return false;
-  }
-  else {
+    if (!dakuten && (c.type === 'dakuten' || c.type === 'handakuten' || c.type === 'combo_dakuten' || c.type === 'combo_handakuten')) return false;
+    if (!combo && (c.type === 'combo' || c.type === 'combo_dakuten' || c.type === 'combo_handakuten')) return false;
+  } else if (type === 'vocab') {
+    if (selectedCategories.length && !selectedCategories.includes(c.category)) return false;
+  } else {
     if (selectedLessons.length && !selectedLessons.includes(Number(c.lesson))) return false;
   }
   return true;
@@ -75,9 +80,11 @@ router.post('/result', (req, res) => {
   // Load the correct romanji and (for kanji) meaning
   let allChars = loadChars(type);
   let results = chars.map(entry => {
-    // For kana, match on .symbol; for kanji, allow .symbol or .kanji
+    // Match symbol depending on type
     let correctChar = allChars.find(c =>
-      (c.symbol && c.symbol === entry.symbol) || (c.kanji && c.kanji === entry.symbol)
+      (c.symbol && c.symbol === entry.symbol) ||
+      (c.kanji && c.kanji === entry.symbol) ||
+      (c.kana && c.kana === entry.symbol)
     );
     let romanji = correctChar ? correctChar.romanji : '';
     let meaning = correctChar ? correctChar.meaning : '';
