@@ -4,7 +4,17 @@ const fs = require('fs');
 const path = require('path');
 
 function loadChars(type) {
-  return JSON.parse(fs.readFileSync(path.join(__dirname, '../data', `${type}.json`), 'utf-8'));
+  return JSON.parse(
+    fs.readFileSync(path.join(__dirname, '../data', `${type}.json`), 'utf-8')
+  );
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 // Selection page
@@ -24,7 +34,6 @@ router.post('/start', (req, res) => {
     selectedLessons = [Number(lessons)];
   }
 
-  // In your route
 let rowNames = ["vowel", "k", "s", "t", "n", "h", "m", "y", "r", "w"];
 let selectedRows = rowNames.filter(r => req.body['row_' + r]);
 
@@ -34,12 +43,17 @@ let filtered = chars.filter(c => {
     // Only allow selected rows (if at least one selected)
     if (selectedRows.length && c.row && !selectedRows.includes(c.row)) return false;
     // Dakuten/Handakuten
-    if (!dakuten && (c.type === "dakuten" || c.type === "handakuten" || c.type === "combo_dakuten" || c.type === "combo_handakuten")) return false;
-    if (!combo && (c.type === "combo" || c.type === "combo_dakuten" || c.type === "combo_handakuten")) return false;
+    if (!dakuten && (c.type === 'dakuten' || c.type === 'handakuten' || c.type === 'combo_dakuten' || c.type === 'combo_handakuten')) return false;
+    if (!combo && (c.type === 'combo' || c.type === 'combo_dakuten' || c.type === 'combo_handakuten')) return false;
+  } else {
+    if (selectedLessons.length && !selectedLessons.includes(Number(c.lesson))) return false;
   }
-  // (Lesson filtering for kanji unchanged)
   return true;
 });
+
+  if (req.body.random) {
+    filtered = shuffleArray(filtered);
+  }
 
 
   res.render('flashcard_page', { chars: filtered, type });
