@@ -12,7 +12,7 @@ RUN npm install --production
 COPY . .
 
 # Expose the port your app runs on (default: 3000)
-EXPOSE 9120
+EXPOSE 9210
 
 # Start the app
 CMD ["node", "app.js"]
