@@ -76,7 +76,12 @@ function showCard(idx) {
       romanjiElem.append(document.createTextNode(data.romanji));
     }
   } else if (type === 'vocab') {
-    charElem.textContent = data.kanji || data.kana || '';
+    // Show kanji with kana reading if available
+    if (data.kanji && data.kana) {
+      charElem.textContent = data.kanji + ' (' + data.kana + ')';
+    } else {
+      charElem.textContent = data.kanji || data.kana || '';
+    }
     romanjiElem.innerHTML = '';
     let text = data.romanji || '';
     if (data.meaning) text += ' - ' + data.meaning;

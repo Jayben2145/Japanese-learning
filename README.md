@@ -19,4 +19,5 @@ Kanji are grouped by lesson numbers roughly following a typical beginner textboo
 Lessons 1–12 are included in `data/kanji.json`. Use the lesson selector on the test
 or flashcard pages to focus on specific lessons.
 
-Vocabulary words are organized by categories such as verbs, places, objects, animals and adjectives.  You can select these categories when starting a vocabulary test or flashcard session.  Practice sentences continue to use lesson numbers.
+Vocabulary words are organized by categories such as verbs, places, objects, animals and adjectives.  You can select these categories when starting a vocabulary test or flashcard session.
+Sentence practice still uses lesson numbers and the selection page now lists brief descriptions of each lesson.

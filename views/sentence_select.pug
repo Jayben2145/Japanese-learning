@@ -4,15 +4,37 @@ block content
   h2 Sentence Practice Options
   form(action="/sentences/start", method="POST")
     label(for="lessons") Lessons:
-    select(name="lessons" id="lessons" multiple style="min-width:80px")
+    select(name="lessons" id="lessons" multiple style="min-width:100px; height:140px")
       option(value="1" selected) 1
       option(value="2") 2
       option(value="3") 3
       option(value="4") 4
       option(value="5") 5
+      option(value="6") 6
     br
     label
       input(type="checkbox", name="random")
       |  Random Order
     br
     button(type="submit") Start
+  .lesson-descriptions
+    h3 Lesson Descriptions
+    ul
+      li
+        b 1:
+        |  Basic introductions
+      li
+        b 2:
+        |  Food and drink
+      li
+        b 3:
+        |  Verbs and actions
+      li
+        b 4:
+        |  Places and directions
+      li
+        b 5:
+        |  Describing things
+      li
+        b 6:
+        |  Review sentences
